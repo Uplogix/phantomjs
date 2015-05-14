@@ -187,8 +187,9 @@ void FileInputType::handleDOMActivateEvent(Event* event)
     if (element()->isDisabledFormControl())
         return;
 
-    if (!ScriptController::processingUserGesture())
-        return;
+    // PATCH related to #12506 - commented out to allow programmatic form file uploads
+    //if (!ScriptController::processingUserGesture())
+    //    return;
 
     if (Chrome* chrome = this->chrome()) {
         FileChooserSettings settings;
